@@ -5,6 +5,7 @@
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)
 ![Vite](https://img.shields.io/badge/Vite-latest-646CFF?style=flat-square&logo=vite)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC?style=flat-square&logo=tailwindcss)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
 ![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?style=flat-square&logo=vercel)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
@@ -23,7 +24,9 @@ The **Certificate Verification System** allows RVS College to generate, download
 - 🏆 **Certificate Generation** — Generate official college certificates instantly
 - 📥 **Download Certificates** — Export certificates as downloadable files
 - ✅ **Certificate Verification** — Verify authenticity of issued certificates
-- 📱 **Responsive Design** — Works seamlessly on mobile, tablet, and desktop
+- 🔥 **Firebase Backend** — Real-time database & cloud storage powered by Firebase
+- 🔐 **Secure Storage** — Certificates stored securely in Firebase Firestore/Storage
+
 - ⚡ **Fast Performance** — Built with Vite for lightning-fast load times
 - 🎨 **Clean UI** — Styled with Tailwind CSS for a modern look
 
@@ -36,6 +39,9 @@ The **Certificate Verification System** allows RVS College to generate, download
 | Frontend     | React 18                |
 | Build Tool   | Vite                    |
 | Styling      | Tailwind CSS            |
+| Backend/DB   | Firebase (Firestore)    |
+| Storage      | Firebase Storage        |
+| Auth         | Firebase Authentication |
 | Linting      | ESLint                  |
 | Deployment   | Vercel                  |
 
@@ -58,6 +64,8 @@ Certificate-Verification-System/
 │   │   ├── Home.jsx              # Landing/home page
 │   │   ├── Generate.jsx          # Certificate generation page
 │   │   └── Verify.jsx            # Certificate verification page
+│   ├── firebase/
+│   │   └── firebaseConfig.js     # Firebase initialization & config
 │   ├── App.jsx                   # Root component with routing
 │   ├── main.jsx                  # React entry point
 │   └── index.css                 # Global styles (Tailwind base)
@@ -100,6 +108,23 @@ npm run dev
 
 The app will be available at `http://localhost:5173`
 
+### Firebase Setup
+
+1. Go to [Firebase Console](https://console.firebase.google.com/) and create a new project
+2. Enable **Firestore Database** and **Storage** from the Firebase console
+3. Copy your Firebase config and create a `.env` file in the root:
+
+```env
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+> ⚠️ Never commit your `.env` file. It's already in `.gitignore`.
+
 ---
 
 ## 📜 Available Scripts
@@ -122,15 +147,9 @@ To deploy your own instance:
 1. Fork this repository
 2. Connect it to your [Vercel](https://vercel.com) account
 3. Set the framework preset to **Vite**
-4. Deploy 🚀
+4. Add your Firebase environment variables under **Settings → Environment Variables** in Vercel
+5. Deploy 🚀
 
----
-
-## 📸 Screenshots
-
-> *(Add screenshots of your app here)*
-
----
 
 ## 🤝 Contributing
 
@@ -146,7 +165,7 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 ## 👨‍💻 Author
 
-**Sauban**
+**Sauban Adil Khan**
 - GitHub: [@sauban13](https://github.com/sauban13)
 - College: RVS College of Engineering & Technology
 
